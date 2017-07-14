@@ -1,0 +1,67 @@
+<div id="output" class=“oput”>Welcome to this page!</div>
+<button type="button" id="dataBtn">Get Data</button>
+<button type="button" id="resetBtn">Reset</button>
+<script>
+
+	var myContainer="";
+
+	document.getElementById("dataBtn").addEventListener("click",dataFunc);
+	document.getElementById("resetBtn").addEventListener("click",resetFunc);
+	var count=0;
+
+
+
+	function resetFunc(){
+
+		document.getElementById("output").innerHTML="Page cleared! Try again";
+	}
+
+	function dataFunc(){
+		//console.log(count++,":",count%2);		
+		var out="";	
+	    var i=0;
+		var a= new XMLHttpRequest();
+		a.open("GET","https://api.myjson.com/bins/rcr4b",true);
+		a.onreadystatechange= function(){
+		//console.log(this.readystate,"state changed",a);
+		if(this.readyState === 4 && a.status==200){
+			
+			myContainer=JSON.parse(this.responseText);			
+			for(i=0;i<myContainer.length;i++){
+				out+=myContainer[i].name+"<br>"
+			}
+			document.getElementById("output").innerHTML=out;
+		}		
+	}
+		a.send();
+	}
+
+	
+	//console.log(a);
+	
+	
+
+	
+
+	
+	/*
+
+    object same value-> ==, same type ->===
+
+	"abc" == new String("abc")    // true
+	"abc" === new String("abc")   // false
+
+	var obj=JSON.parse(jsonData); error coz it is already parsed object
+	
+	//var obj=JSON.stringify(jsonData);
+	//var obj1=JSON.parse(obj)
+	//console.log(obj);
+	//var text="";
+
+	for (i = 0; i < jsonData.length; i++) { 
+     text += jsonData[i].name + "<br>";
+	}
+	document.getElementById("output").innerHTML = text;*/
+
+</script>
+	

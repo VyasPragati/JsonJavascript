@@ -1,0 +1,28 @@
+<div id="output" class="oput">Nothing sent yet</div>
+<br>
+<input type="text" id="myText" value="" placeholder="name">
+<br>
+<input type="number" id="myAge" value="" placeholder="age">
+<br>
+<button type="button" id="myBtn">Get Data</button>
+
+<script>
+    var myContainer = "";
+    document.getElementById("myBtn").addEventListener("click", myFun);
+
+    function myFun() {
+        var myTxt = document.getElementById("myText").value;
+        var myAge = document.getElementById("myAge").value;
+        var a = new XMLHttpRequest();
+        a.onreadystatechange = function () {
+            if (a.readyState == 4 && a.status == 200) {
+                console.log(a);
+                document.getElementById("output").innerHTML = this.responseText;
+            }
+
+        }
+        a.open("POST", "dataPost.php", true);
+        a.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        a.send("name=" + myTxt + "&age=" + myAge);
+    }
+</script>

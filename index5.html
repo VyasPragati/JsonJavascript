@@ -1,0 +1,74 @@
+<div id="output" class=“oput”>Welcome to this page!</div>
+<button type="button" id="dataBtn">Get Data</button>
+<button type="button" id="resetBtn">Reset</button>
+<input type="text" id="myText" value="Hello">
+<script>
+
+	var myContainer="";
+
+	document.getElementById("dataBtn").addEventListener("click",dataFunc);
+	document.getElementById("resetBtn").addEventListener("click",resetFunc);
+
+	function resetFunc(){
+		var b= new XMLHttpRequest();
+		b.open("GET", "date.php",true);
+		b.send();
+		b.onreadystatechange= function(){
+		//console.log(this.readystate,"state changed",a);
+		if(this.readyState === 4 && b.status==200){
+			
+			console.log(this.responseText);
+			document.getElementById("output").innerHTML=this.responseText;
+		}
+        
+		}
+	}
+
+	function dataFunc(){
+		//console.log(count++,":",count%2);		
+		var myTxt=document.getElementById("myText").value;
+		var a= new XMLHttpRequest();
+		a.open("GET", "data.php?name=" + myTxt ,true);
+		a.onreadystatechange= function(){
+		//console.log(this.readystate,"state changed",a);
+		if(this.readyState === 4 && a.status==200){
+			
+			console.log(this.responseText);
+			document.getElementById("output").innerHTML=this.responseText;
+		}	
+		
+	}
+	a.send();	
+	}
+		
+	
+
+	
+	//console.log(a);
+	
+	
+
+	
+
+	
+	/*
+
+    object same value-> ==, same type ->===
+
+	"abc" == new String("abc")    // true
+	"abc" === new String("abc")   // false
+
+	var obj=JSON.parse(jsonData); error coz it is already parsed object
+	
+	//var obj=JSON.stringify(jsonData);
+	//var obj1=JSON.parse(obj)
+	//console.log(obj);
+	//var text="";
+
+	for (i = 0; i < jsonData.length; i++) { 
+     text += jsonData[i].name + "<br>";
+	}
+	document.getElementById("output").innerHTML = text;*/
+
+</script>
+	

@@ -1,0 +1,20 @@
+<div id="output" class=“oput”>Nothing</div>
+
+<script>
+	var jsonData=
+	[{"name":"Bradley Montgomery","friends":[{"id":0,"name":"Shanna Vincent"},{"id":1,"name":"Barnes Gallegos"}],"greeting":"Hello, Bradley Montgomery! You have 7 unread messages.","favoriteFruit":"banana"},{"name":"Manning Conway","friends":[{"id":0,"name":"Ava Lang"},{"id":1,"name":"Sheryl Keith"}],"greeting":"Hello, Manning Conway! You have 5 unread messages.","favoriteFruit":"apple"}];
+
+	console.log(jsonData);
+	//var obj=JSON.parse(jsonData); error coz it is already parsed object
+	
+	//var obj=JSON.stringify(jsonData);
+	//var obj1=JSON.parse(obj)
+	//console.log(obj);
+	var text="";
+	for (i = 0; i < jsonData.length; i++) { 
+     text += jsonData[i].name + "<br>";
+	}
+	document.getElementById("output").innerHTML = text;
+
+</script>
+	
