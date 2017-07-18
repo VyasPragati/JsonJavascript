@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 this- window 
+\b0 not in a function without code global\
+variables and functions are sitting on global object\
+\
+
+\b Execution
+\b0  of javascript is not one by one, declaration below define will work. Creation phase: sets memory is setup for variables and function in the entire code. variable are set to undefined whereas function are set as a whole. so values for variable can be undefined unless assignment code is executed but function could give correct results\
+\
+\
+undefined is when var value is not assigned, not defined is when var is not declared so memory space is not alloted\
+\
+
+\b Scope
+\b0  of variable every function has its own scope so if a var a is declared globally it is in global scope , if a is declared in function then it will exist in function scope. these vars are distant and don\'92t touch each other\
+\
+if var not defined in function then global declaration is used. if function is defined globally if defined inside another function then that variable will be used.Also if a fun is defined inside another function then it cannot be called from global reference. If var is not defined in the function then global ref definition is considered\
+\
+let declaration of variable is only available inside the block. \
+\
+Asynchronous:Event Queue is run until execution context is empty\
+\
+
+\b Types
+\b0 \
+primitive type is a value not object\
+}
